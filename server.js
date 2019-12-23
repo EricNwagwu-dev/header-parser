@@ -26,8 +26,8 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/whoami", function(req, res){
   //req.headers
-  trustxforwarded=true
-  res.json({"ipaddress": req.header("x-forwarded-for"), "language": req.header('accept-language'), "software": req.header('user-agent')});
+  console.log(req.headers)
+  res.json({"ipaddress": req.header("x-forwarded-for").match("/\w,/"), "language": req.header('accept-language'), "software": req.header('user-agent')});
 });
 
 // listen for requests :)
